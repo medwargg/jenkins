@@ -2,9 +2,21 @@ pipeline {
     agent any
 
     stages {
-        stage('Build') {
+        stage('Compile') {
             steps {
-                sh './mvnw clean install -DskipTests'
+                sh './mvnw clean compile'
+            }
+        }
+
+        stage('Test'){
+            steps{
+                sh './mvnw test'
+            }
+        }
+
+        stage('Build'){
+            steps{
+                sh './mvnw package -B -ntp'
             }
         }
     }
