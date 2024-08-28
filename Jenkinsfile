@@ -9,7 +9,7 @@ pipeline {
         }
         stage('Print maven version') {
             steps {
-                sh 'mvn --version'
+                sh './mvnw --version'
             }
         }
     }
