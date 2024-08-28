@@ -2,10 +2,14 @@ pipeline {
     agent any
 
     stages {
-        stage('Hello') {
+        stage('List files') {
             steps {
-                git branch: 'master', url: 'https://github.com/medwargg/jenkins.git'
                 sh 'ls -la'
+            }
+        }
+        stage('Print maven version') {
+            steps {
+                sh 'mvn --version'
             }
         }
     }
