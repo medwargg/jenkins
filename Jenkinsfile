@@ -2,14 +2,9 @@ pipeline {
     agent any
 
     stages {
-        stage('List files') {
+        stage('Build') {
             steps {
-                sh 'ls -la'
-            }
-        }
-        stage('Print maven version') {
-            steps {
-                sh './mvnw --version'
+                sh './mvnw clean install -DskipTests'
             }
         }
     }
